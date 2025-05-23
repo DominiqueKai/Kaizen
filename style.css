@@ -1,0 +1,24 @@
+html, body {
+  height: 200%;
+  margin: 0;
+  padding: 0;
+}
+img {
+  border-radius: 50%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 12%;
+  background-color: rgb(250, 193, 193);
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  gap: 20px; /* space between items */
+}
+
+.header img {
+  border-radius: 50%;
+}

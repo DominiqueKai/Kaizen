@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaizen Vistro Portfolio - Videos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Noto+Serif+Bengali:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Serif Bengali', serif;
+      background: #fff8f0;
+    }
+    .header {
+      background-color: rgb(250, 193, 193);
+      padding: 20px 12%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    .logo {
+      font-family: 'Bowlby One SC', cursive;
+      font-size: 25px;
+      color: #b75cd3;
+      margin-left: 20px;
+    }
+    .navbar a {
+      margin-left: 20px;
+      color: rgb(190, 108, 133);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 18px;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .navbar a:hover {
+      border-bottom: 3px solid white;
+    }
+    main {
+      padding: 140px 12% 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Bowlby One SC', cursive;
+      color: #b75cd3;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    /* Filter buttons */
+    .filter-btns {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .filter-btns button {
+      background: rgb(250, 193, 193);
+      border: 2px solid #b75cd3;
+      color: rgb(190, 108, 133);
+      font-weight: 700;
+      font-family: 'Bowlby One SC', cursive;
+      padding: 8px 16px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .filter-btns button.active,
+    .filter-btns button:hover {
+      background: #b75cd3;
+      color: #fff;
+    }
+    /* Video grid */
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .video-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .video-card:hover {
+      transform: scale(1.03);
+    }
+    iframe {
+      width: 100%;
+      height: 180px;
+      border: none;
+      display: block;
+    }
+    .video-info {
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      color: rgb(190, 108, 133);
+      font-family: 'Bowlby One SC', cursive;
+    }
+
+     /* Footer styles */
+    footer {
+      background-color: rgb(250, 193, 193);
+      padding: 15px 12%;
+      text-align: center;
+      color: #b75cd3;
+      font-family: 'Bowlby One SC', cursive;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+      backdrop-filter: blur(10px);
+      font-size: 16px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <img src="client profile.png" style="width: 80px; height: 90px; border-radius: 100%;" alt="Profile" />
+  <div class="logo">Vistro Yummy Treats</div>
+  <nav class="navbar">
+    <a href="My client Web.html" target="_blank">Home</a>
+    <a href="about.html" target="_blank">About Us</a>
+    <a href="videos.html" target="_blank">Videos</a>
+    <a href="pictures.html" target="_blank">Pictures</a>
+    <a href="contact.html" target="_blank">Contacts</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Video Gallery</h1>
+  <div class="filter-btns">
+    <button class="active" onclick="filterVideos('all')">All</button>
+    <button onclick="filterVideos('cooking')">Cooking</button>
+    <button onclick="filterVideos('events')">Events</button>
+    <button onclick="filterVideos('tutorials')">Tutorials</button>
+  </div>
+
+  <div class="videos">
+    <div class="video-card" data-category="cooking">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <div class="video-info">Delicious Cooking Recipe</div>
+    </div>
+    <div class="video-card" data-category="events">
+      <iframe src="https://www.youtube.com/embed/3GwjfUFyY6M" allowfullscreen></iframe>
+      <div class="video-info">Food Festival Highlights</div>
+    </div>
+    <div class="video-card" data-category="tutorials">
+      <iframe src="https://www.youtube.com/embed/V-_O7nl0Ii0" allowfullscreen></iframe>
+      <div class="video-info">How to Make a Cake</div>
+    </div>
+    <div class="video-card" data-category="events">
+      <iframe src="https://www.youtube.com/embed/l9PxOanFjxQ" allowfullscreen></iframe>
+      <div class="video-info">Cooking Competition 2024</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Kaizen Vistro Portfolio. All rights reserved.
+</footer>
+
+<script>
+  function filterVideos(category) {
+    const videos = document.querySelectorAll('.video-card');
+    const buttons = document.querySelectorAll('.filter-btns button');
+    
+    // Toggle active class on buttons
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === category);
+      if(category === 'all' && btn.textContent.toLowerCase() === 'all') {
+        btn.classList.add('active');
+      }
+    });
+    
+    // Show/hide videos by category
+    videos.forEach(video => {
+      if(category === 'all' || video.dataset.category === category) {
+        video.style.display = 'block';
+      } else {
+        video.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

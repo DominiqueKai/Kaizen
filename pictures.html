@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaizen Vistro Portfolio - Pictures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Noto+Serif+Bengali:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Serif Bengali', serif;
+      background: #fff8f0;
+    }
+    .header {
+      background-color: rgb(250, 193, 193);
+      padding: 20px 12%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    .logo {
+      font-family: 'Bowlby One SC', cursive;
+      font-size: 25px;
+      color: #b75cd3;
+      margin-left: 20px;
+    }
+    .navbar a {
+      margin-left: 20px;
+      color: rgb(190, 108, 133);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 18px;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .navbar a:hover {
+      border-bottom: 3px solid white;
+    }
+    main {
+      padding: 140px 12% 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Bowlby One SC', cursive;
+      color: #b75cd3;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.15);
+      object-fit: cover;
+      height: 180px;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.3);
+    }
+
+    /* Lightbox styles */
+    .lightbox-overlay {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;  /* adjust this to move more or less */
+  z-index: 2000;
+}
+    .lightbox-overlay.active {
+      display: flex;
+    }
+    .lightbox-content {
+  position: relative;
+  max-width: 50%;
+  max-height: 50%;
+}
+    .lightbox-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 30px white;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: #b75cd3;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #b75cd3;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: rgb(250, 193, 193);
+      padding: 15px 12%;
+      text-align: center;
+      color: #b75cd3;
+      font-family: 'Bowlby One SC', cursive;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+      backdrop-filter: blur(10px);
+      font-size: 16px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <img src="client profile.png" style="width: 80px; height: 90px; border-radius: 100%;" alt="Profile" />
+  <div class="logo">Vistro Yummy Treats</div>
+  <nav class="navbar">
+    <a href="My client Web.html" target="_blank">Home</a>
+    <a href="about.html" target="_blank">About Us</a>
+    <a href="videos.html" target="_blank">Videos</a>
+    <a href="pictures.html" target="_blank">Pictures</a>
+    <a href="contact.html" target="_blank">Contacts</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Picture Gallery</h1>
+  <div class="gallery">
+    <img src="ima1.jpg" alt="Delicious Food 1" />
+    <img src="ima2.jpg" alt="Delicious Food 2" />
+    <img src="ima3.jpg" alt="Delicious Food 3" />
+    <img src="ima4.jpg" alt="Delicious Food 4" />
+    <img src="ima5.jpg" alt="Delicious Food 5" />
+    <img src="ima6.jpg" alt="Delicious Food 6" />
+    <img src="ima7.jpg" alt="Delicious Food 7" />
+  </div>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img src="" alt="Expanded Image" id="lightbox-img" />
+  </div>
+</div>
+<footer>
+  &copy; 2025 Kaizen Vistro Portfolio. All rights reserved.
+</footer>
+
+<script>
+  const galleryImages = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>
